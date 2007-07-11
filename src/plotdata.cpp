@@ -2906,8 +2906,8 @@ void wxPlotData::SetSymbol( wxPlotSymbol_Type type, wxPlotPen_Type colour_type, 
     }
 }
 
-wxBitmap wxPlotData::CreateSymbol( wxPlotSymbol_Type type, wxPlotPen_Type colour_type, int width, int height,
-                                   const wxPen *pen, const wxBrush *brush)
+wxBitmap wxPlotData::CreateSymbol( wxPlotSymbol_Type type, wxPlotPen_Type WXUNUSED(colour_type), int width, int height,
+                                   const wxPen *WXUNUSED(pen), const wxBrush *WXUNUSED(brush))
 {
     wxBitmap b(width, height);
 

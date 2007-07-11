@@ -67,7 +67,8 @@ unsigned NumberOfBitsNeeded ( unsigned PowerOfTwo )
             return i;
     }
 
-    return 0;
+    // unreachable code...
+    // return 0;
 }
 
 unsigned ReverseBits ( unsigned index, unsigned NumBits )

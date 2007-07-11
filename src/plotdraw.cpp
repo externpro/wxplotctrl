@@ -495,7 +495,7 @@ wxPlotDrawerAxisBase::wxPlotDrawerAxisBase(wxPlotCtrl* owner)
 //-----------------------------------------------------------------------------
 IMPLEMENT_ABSTRACT_CLASS(wxPlotDrawerArea, wxPlotDrawerBase)
 
-void wxPlotDrawerArea::Draw(wxDC *dc, bool refresh)
+void wxPlotDrawerArea::Draw(wxDC *WXUNUSED(dc), bool WXUNUSED(refresh))
 {
 }
 
