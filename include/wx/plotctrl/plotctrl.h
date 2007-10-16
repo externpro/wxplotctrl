@@ -23,6 +23,9 @@
 #include "wx/plotctrl/plotfunc.h"
 #include "wx/things/range.h"
 
+//This line added by SC@SDL on 10/8/07 for Solaris build:
+#include <wx/window.h>
+
 class WXDLLEXPORT wxDC;
 class WXDLLEXPORT wxNotifyEvent;
 class WXDLLEXPORT wxPaintEvent;

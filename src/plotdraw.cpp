@@ -36,6 +36,11 @@
 #include <float.h>
 #include <limits.h>
 
+//These 3 lines added by SC@SDL on 10/8/07 for wxplotctrl Solaris build:
+#if defined(__GNUG__) || defined(__GNUWIN32__) || defined(__SUNCC__)
+#include <ieeefp.h>
+#endif
+
 // MSVC hogs global namespace with these min/max macros - remove them
 #ifdef max
     #undef max

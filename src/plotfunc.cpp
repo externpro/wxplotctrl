@@ -21,6 +21,8 @@
 
 #ifndef WX_PRECOMP
     #include "wx/bitmap.h"
+    //Next line added by SC@SDL on 10/8/07 for Solaris build:
+    #include "wx/dataobj.h"
     #include "wx/textdlg.h"
     #include "wx/msgdlg.h"
     #include "wx/dcmemory.h"

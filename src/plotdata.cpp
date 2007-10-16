@@ -37,6 +37,11 @@
 #include "wx/things/range.h"
 #include <math.h>
 
+//These 3 lines added by SC@SDL on 10/8/07 for wxplotctrl Solaris build:
+#if defined(__GNUG__) || defined(__GNUWIN32__) || defined(__SUNCC__)
+#include <ieeefp.h>
+#endif
+
 #define wxPLOTDATA_MAX_DATA_COLUMNS 64
 
 #define CHECK_INDEX_COUNT_MSG(index, count, max_count, ret) \
@@ -805,8 +810,9 @@ bool wxPlotData::LoadFile( const wxString &filename, int x_col, int y_col, int o
                             }
                             else
                             {
+                              //static_cast<int>(*)'s added by SC@SDL on 10/8/07 for Solaris wxplotctrl build:
                                 int ret = wxMessageBox(
-                                    wxString::Format(wxT("Invalid data columns '%d %d', limited to 1 to %d"), xcol+1, ycol+1, n),
+                                    wxString::Format(wxT("Invalid data columns '%d %d', limited to 1 to %d"), static_cast<int>(xcol+1), static_cast<int>(ycol+1), n),
                                     wxT("Invalid data columns"), wxOK|wxCANCEL|wxICON_ERROR);
                                 if (ret == wxCANCEL)
                                     stop_load = true;
