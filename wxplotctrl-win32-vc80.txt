@@ -1,6 +1,0 @@
-PKG wxplotctrl
-VER 2006.04.28
-OS win32
-COMPILER vc80
-SDLVER 2
-DEPENDS wxwidgets-2.8.4 wxthings-2006.04.28
