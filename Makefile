@@ -78,6 +78,6 @@ else
 %.dd: %.cc 
 	$(MAKE_DIR)/depend.sh $< $@ "$(CPPFLAGS) $(CXXFLAGS) $(USER_SPECIALS)"
 %.o : %.cc
-	$(CXX) $(CPPFLAGS) $(INC) $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(INC) $< -o $@
 
 endif
