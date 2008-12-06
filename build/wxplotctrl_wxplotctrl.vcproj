@@ -19,7 +19,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -95,7 +95,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -172,7 +172,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -223,7 +223,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName).lib"
+				OutputFile="$(OutDir)\$(ProjectName)s.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -247,7 +247,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -299,7 +299,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName).lib"
+				OutputFile="$(OutDir)\$(ProjectName)s.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -323,7 +323,7 @@
 		</Configuration>
 		<Configuration
 			Name="ReleaseDLL|Win32"
-			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_dll"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -398,7 +398,7 @@
 		</Configuration>
 		<Configuration
 			Name="ReleaseDLL|x64"
-			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_dll"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
