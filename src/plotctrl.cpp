@@ -581,8 +581,13 @@ bool wxPlotCtrl::Create( wxWindow *parent, wxWindowID win_id,
     {
         m_axisFontSize.x = 6;
         m_axisFontSize.y = 12;
+#if wxCHECK_VERSION(2,9,0) // concatenating mismatched strings
+        wxFAIL_MSG("Can't determine the font size for the axis! I'll guess.\n"
+                   "The display might be corrupted, however you may continue.");
+#else
         wxFAIL_MSG(wxT("Can't determine the font size for the axis! I'll guess.\n"
                        "The display might be corrupted, however you may continue."));
+#endif
     }
 
     m_xAxisDrawer->SetTickFont(axisFont);
@@ -2571,7 +2576,11 @@ void wxPlotCtrl::DrawMouseMarker( wxDC *dc, int type, const wxRect &rect )
     if ((rect.width == 0) || (rect.height == 0))
         return;
 
+#if wxCHECK_VERSION(2,9,0)
+    wxRasterOperationMode logical_fn = dc->GetLogicalFunction();
+#else
     int logical_fn = dc->GetLogicalFunction();
+#endif
     dc->SetLogicalFunction( wxINVERT );
     dc->SetBrush( *wxTRANSPARENT_BRUSH );
     dc->SetPen(*wxThePenList->FindOrCreatePen(*wxBLACK, 1, wxDOT));
@@ -2619,7 +2628,11 @@ void wxPlotCtrl::DrawCrosshairCursor( wxDC *dc, const wxPoint &pos )
     wxCHECK_RET(dc, wxT("invalid window"));
 
     dc->SetPen(*wxBLACK_PEN);
+#if wxCHECK_VERSION(2,9,0)
+    wxRasterOperationMode logical_fn = dc->GetLogicalFunction();
+#else
     int logical_fn = dc->GetLogicalFunction();
+#endif
     dc->SetLogicalFunction( wxINVERT );
 
     dc->CrossHair(pos.x, pos.y);
@@ -3519,12 +3532,12 @@ void wxPlotCtrl::OnChar(wxKeyEvent &event)
     switch (event.GetKeyCode())
     {
         // cursor keys moves the plot origin around
-        case WXK_LEFT  : SetOrigin(m_viewRect.GetLeft() - m_viewRect.m_width/10.0, m_viewRect.GetTop()); return;
-        case WXK_RIGHT : SetOrigin(m_viewRect.GetLeft() + m_viewRect.m_width/10.0, m_viewRect.GetTop()); return;
-        case WXK_UP    : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() + m_viewRect.m_height/10.0); return;
-        case WXK_DOWN  : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() - m_viewRect.m_height/10.0); return;
-        case WXK_PRIOR : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() + m_viewRect.m_height/2.0); return;
-        case WXK_NEXT  : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() - m_viewRect.m_height/2.0); return;
+        case WXK_LEFT      : SetOrigin(m_viewRect.GetLeft() - m_viewRect.m_width/10.0, m_viewRect.GetTop()); return;
+        case WXK_RIGHT     : SetOrigin(m_viewRect.GetLeft() + m_viewRect.m_width/10.0, m_viewRect.GetTop()); return;
+        case WXK_UP        : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() + m_viewRect.m_height/10.0); return;
+        case WXK_DOWN      : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() - m_viewRect.m_height/10.0); return;
+        case WXK_PAGEUP    : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() + m_viewRect.m_height/2.0); return;
+        case WXK_PAGEDOWN  : SetOrigin(m_viewRect.GetLeft(), m_viewRect.GetTop() - m_viewRect.m_height/2.0); return;
 
         // Center the plot on the cursor point, or 0,0
         case WXK_HOME :
