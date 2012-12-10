@@ -32,15 +32,13 @@ endif
 # ----------------------------------------------------------------------------
 
 # the location of wxCode, where wxSheet and wxStEdit are located
-#These 2 lines changed by SC@SDL on 10/8/07 to allow Solaris build to work
-#  (original values were ../../.. and $(WXCODE_DIR)/components/wxthings )
-WXCODE_DIR = ../..
-WXTHINGS_DIR = $(WXCODE_DIR)/wxthings
+WXCODE_DIR = ../../..
+WXTHINGS_DIR = $(WXCODE_DIR)/components/wxthings
 
 # ----------------------------------------------------------------------------
 
 WXPLOTCTRL_LIBNAME = $(WXBASENAME)_plotctrl-$(WXRELEASE)
-WXPLOTCTRL_LIBDIR = ./lib
+WXPLOTCTRL_LIBDIR = $(WXLIBDIR)
 
 LIBVERSION_CURRENT=1
 LIBVERSION_REVISION=0
