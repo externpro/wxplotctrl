@@ -23,6 +23,7 @@
     #include "wx/dcmemory.h"
 #endif // WX_PRECOMP
 
+#include "wx/dcclient.h"
 #include "wx/math.h"
 
 #include "wx/plotctrl/plotdraw.h"

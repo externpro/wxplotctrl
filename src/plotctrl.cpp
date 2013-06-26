@@ -32,6 +32,7 @@
     #include "wx/textctrl.h"
 #endif // WX_PRECOMP
 
+#include "wx/dcclient.h"
 #include "wx/splitter.h"
 #include "wx/math.h"
 #include "wx/image.h"
