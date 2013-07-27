@@ -46,4 +46,4 @@ set_wxxtarget_properties(${lib_name})
 #######################################
 # install
 install(TARGETS ${lib_name} DESTINATION lib${NUMBITS})
-install(FILES ${plot_hdrs} DESTINATION include/wx/plotctrl)
+install(FILES ${plot_hdrs} DESTINATION include/${wxinc}/wx/plotctrl)
