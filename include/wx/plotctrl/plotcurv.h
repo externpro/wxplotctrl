@@ -102,7 +102,11 @@ public:
     wxArrayGenericPen m_pens;
     static wxArrayGenericPen sm_defaultPens;
 
+#if wxUSE_STD_CONTAINERS
+    wxArrayString       m_optionNames;
+#else
     wxSortedArrayString m_optionNames;
+#endif
     wxArrayString       m_optionValues;
 };
 

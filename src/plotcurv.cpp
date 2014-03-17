@@ -236,7 +236,17 @@ int wxPlotCurve::SetOption(const wxString& name, const wxString& value, bool upd
     int n = M_PLOTCURVEDATA->m_optionNames.Index(name);
     if (n == wxNOT_FOUND)
     {
+#if wxUSE_STD_CONTAINERS
+        // following suggestion from wxWidgets "Container Classes" documentatation:
+        // http://docs.wxwidgets.org/3.0/overview_container.html#overview_container_std
+        // avoid use of wxSortedArrayString by using a normal array and called its
+        // Sort() method when needed
+        M_PLOTCURVEDATA->m_optionNames.Add(name);
+        M_PLOTCURVEDATA->m_optionNames.Sort();
+        n = M_PLOTCURVEDATA->m_optionNames.Index(name);
+#else
         n = M_PLOTCURVEDATA->m_optionNames.Add(name);
+#endif
         M_PLOTCURVEDATA->m_optionValues.Insert(value, n);
     }
     else if (update)
