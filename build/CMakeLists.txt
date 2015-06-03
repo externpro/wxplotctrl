@@ -45,5 +45,5 @@ add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
 set_wxxtarget_properties(${lib_name})
 #######################################
 # install
-install(TARGETS ${lib_name} DESTINATION lib${NUMBITS})
+install(TARGETS ${lib_name} DESTINATION lib)
 install(FILES ${plot_hdrs} DESTINATION include/${wxinc}/wx/plotctrl)
