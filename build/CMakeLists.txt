@@ -45,5 +45,10 @@ add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
 set_wxxtarget_properties(${lib_name})
 #######################################
 # install
-install(TARGETS ${lib_name} DESTINATION lib)
+install(TARGETS ${lib_name} EXPORT ${PROJECT_NAME}-targets
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  )
 install(FILES ${plot_hdrs} DESTINATION include/${wxinc}/wx/plotctrl)
+install(EXPORT ${PROJECT_NAME}-targets DESTINATION lib/cmake)
