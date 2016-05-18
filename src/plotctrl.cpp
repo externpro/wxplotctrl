@@ -702,7 +702,7 @@ void wxPlotCtrl::SetPlotWinMouseCursor(int cursorid)
 {
     if (cursorid == m_mouse_cursorid) return;
     m_mouse_cursorid = cursorid;
-    SetCursor(wxCursor(cursorid));
+    SetCursor(wxCursor(static_cast<wxStockCursor>(cursorid)));
 }
 
 void wxPlotCtrl::OnMouse( wxMouseEvent &event )
@@ -2285,7 +2285,7 @@ void wxPlotCtrl::SetAreaMouseCursor(int cursorid)
     else if (cursorid == CURSOR_GRAB)
         m_area->SetCursor(s_grabCursor);
     else
-        m_area->SetCursor(wxCursor(cursorid));
+        m_area->SetCursor(wxCursor(static_cast<wxStockCursor>(cursorid)));
 }
 
 void wxPlotCtrl::OnSize( wxSizeEvent& )
