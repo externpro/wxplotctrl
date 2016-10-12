@@ -60,6 +60,11 @@
 // Consts
 //-----------------------------------------------------------------------------
 
+#ifdef __WXGTK3__
+#undef wxPLOTCTRL_FAST_GRAPHICS
+#define wxPLOTCTRL_FAST_GRAPHICS 0
+#endif
+
 #if defined(__WXGTK__) && wxPLOTCTRL_FAST_GRAPHICS
 
 extern "C" {
