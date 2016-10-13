@@ -40,11 +40,6 @@
 #include "wx/plotctrl/plotctrl.h"
 #include "wx/plotctrl/plotdraw.h"
 
-//These 3 lines added by SC@SDL on 10/8/07 for wxplotctrl Solaris build:
-#if defined(__sun__)
-#include <ieeefp.h>
-#endif
-
 #include <math.h>
 #include <float.h>
 #include <limits.h>

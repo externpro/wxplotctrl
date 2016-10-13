@@ -37,11 +37,6 @@
 #include "wx/things/range.h"
 #include <math.h>
 
-//These 3 lines added by SC@SDL on 10/8/07 for wxplotctrl Solaris build:
-#if defined(__sun__)
-#include <ieeefp.h>
-#endif
-
 #define wxPLOTDATA_MAX_DATA_COLUMNS 64
 
 #define CHECK_INDEX_COUNT_MSG(index, count, max_count, ret) \

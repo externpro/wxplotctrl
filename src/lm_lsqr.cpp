@@ -24,11 +24,6 @@
     #include "wx/log.h"
 #endif // WX_PRECOMP
 
-//These 3 lines added by SC@SDL on 10/8/07 for wxplotctrl Solaris build:
-#if defined(__sun__)
-#include <ieeefp.h>
-#endif
-
 #include "wx/math.h"
 
 #include "wx/plotctrl/lm_lsqr.h"
