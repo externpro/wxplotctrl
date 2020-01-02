@@ -55,3 +55,14 @@ if(DEFINED XP_NAMESPACE)
   set(nameSpace NAMESPACE ${XP_NAMESPACE}::)
 endif()
 install(EXPORT ${targetsFile} DESTINATION lib/cmake ${nameSpace})
+#######################################
+set(samples_plotctrl_srcs
+  ../samples/plotctrl/wxplotctrl.cpp
+  ../samples/plotctrl/wxplotctrl.rc
+  )
+foreach(sample
+  samples_plotctrl
+  )
+  add_executable(${sample} ${${sample}_srcs})
+  target_link_libraries(${sample} PRIVATE ${lib_name})
+endforeach()
