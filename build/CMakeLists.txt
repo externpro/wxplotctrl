@@ -1,14 +1,5 @@
 set(lib_name plotctrl)
 #######################################
-# include directories
-include_directories( 
-  ../../wxthings/include
-  ../include
-  )
-#######################################
-# library sources
-########################
-# source
 set(plot_srcs
   ../src/fourier.c
   ../src/fparser.cpp
@@ -24,7 +15,6 @@ set(plot_srcs
   )
 list(APPEND ${lib_name}_libsrcs ${plot_srcs})
 ########################
-# headers
 set(plot_hdrs
   ../include/wx/plotctrl/fourier.h
   ../include/wx/plotctrl/fparser.h
@@ -40,15 +30,28 @@ set(plot_hdrs
   )
 list(APPEND ${lib_name}_libsrcs ${plot_hdrs})
 #######################################
-# library
-add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
-set_wxxtarget_properties(${lib_name})
+if(DEFINED WX_SOURCE)
+  message(STATUS "WX_SOURCE: ${WX_SOURCE}") # passed-in via externpro
+endif()
 #######################################
-# install
-install(TARGETS ${lib_name} EXPORT ${PROJECT_NAME}${WX_VER}-targets
+add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
+target_include_directories(${lib_name} PUBLIC $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/${wxInc}>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+  PRIVATE
+  # wxplotctrl plotdraw.cpp needs to include wx/gtk/dcclient.h when building against gtk2
+  ${WX_SOURCE}/include # TODO should be removed when building against gtk2 becomes obsolete
+  )
+target_link_libraries(${lib_name} PUBLIC things)
+list(TRANSFORM WXX_OUTPUT_NAME REPLACE "@TARGET@" "${lib_name}")
+set_target_properties(${lib_name} PROPERTIES OUTPUT_NAME ${WXX_OUTPUT_NAME})
+#######################################
+install(TARGETS ${lib_name} EXPORT ${targetsFile}
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   )
-install(FILES ${plot_hdrs} DESTINATION include/${wxinc}/wx/plotctrl)
-install(EXPORT ${PROJECT_NAME}${WX_VER}-targets DESTINATION lib/cmake)
+install(FILES ${plot_hdrs} DESTINATION ${wxInc}/wx/${lib_name})
+if(DEFINED XP_NAMESPACE)
+  set(nameSpace NAMESPACE ${XP_NAMESPACE}::)
+endif()
+install(EXPORT ${targetsFile} DESTINATION lib/cmake ${nameSpace})
