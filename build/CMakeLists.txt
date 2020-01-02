@@ -63,6 +63,6 @@ set(samples_plotctrl_srcs
 foreach(sample
   samples_plotctrl
   )
-  add_executable(${sample} ${${sample}_srcs})
+  add_executable(${sample} WIN32 ${${sample}_srcs})
   target_link_libraries(${sample} PRIVATE ${lib_name})
 endforeach()
