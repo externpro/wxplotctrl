@@ -20,6 +20,8 @@
 #include "wx/things/genergdi.h"
 #include "wx/things/range.h"
 
+#include <wx/font.h>
+
 class WXDLLEXPORT wxDC;
 
 class WXDLLIMPEXP_THINGS wxRangeIntSelection;
